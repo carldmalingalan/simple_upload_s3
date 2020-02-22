@@ -10,9 +10,7 @@ export default () => {
       useCreateIndex: true
     },
     err => {
-      if (!err) {
-        console.log(`Connected successfully into MongoDB`);
-      }
+      console.log(err ? err : "Connected to MongoDB");
     }
   );
 };

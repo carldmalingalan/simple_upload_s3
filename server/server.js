@@ -8,14 +8,13 @@ const app = express();
 if (process.env.NODE_ENV !== "production") {
   config();
 }
+
 mongodbConnect();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/file", Routes.FileRouter);
+Routes(app);
 
 app.listen(process.env.PORT, err => {
-  if (!err) {
-    console.log(`Server connected to port:${process.env.PORT}`);
-  }
+  console.log(err ? err : `Server is running on port:${process.env.PORT}`);
 });

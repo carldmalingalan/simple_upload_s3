@@ -1,3 +1,5 @@
 import FileRouter from "./file";
 
-export default { FileRouter };
+export default app => {
+  app.use("/file", FileRouter);
+};
